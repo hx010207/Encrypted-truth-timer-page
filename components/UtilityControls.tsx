@@ -4,8 +4,10 @@ import { motion } from 'framer-motion';
 interface UtilityControlsProps {
     isMuted: boolean;
     isFullscreen: boolean;
+    areControlsLocked: boolean;
     onToggleMute: () => void;
     onToggleFullscreen: () => void;
+    onToggleControls: () => void;
 }
 
 const UtilityButton = ({ onClick, children }: { onClick: () => void; children: React.ReactNode }) => (
@@ -19,9 +21,22 @@ const UtilityButton = ({ onClick, children }: { onClick: () => void; children: R
     </motion.button>
 );
 
-const UtilityControls: React.FC<UtilityControlsProps> = ({ isMuted, isFullscreen, onToggleMute, onToggleFullscreen }) => {
+const UtilityControls: React.FC<UtilityControlsProps> = ({ isMuted, isFullscreen, areControlsLocked, onToggleMute, onToggleFullscreen, onToggleControls }) => {
     return (
         <div className="absolute bottom-4 right-4 z-20 flex gap-4">
+            {/* FIX: Added conditional SVG icon as a child to the UtilityButton component. */}
+            <UtilityButton onClick={onToggleControls}>
+                 {areControlsLocked ? (
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                    </svg>
+                ) : (
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 11V7a4 4 0 118 0m-4 8v3m-6 2h12a2 2 0 002-2v-7a2 2 0 00-2-2H5a2 2 0 00-2 2v7a2 2 0 002 2z" />
+                    </svg>
+                )}
+            </UtilityButton>
+            {/* FIX: Added conditional SVG icon as a child to the UtilityButton component. */}
             <UtilityButton onClick={onToggleMute}>
                 {isMuted ? (
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -34,6 +49,7 @@ const UtilityControls: React.FC<UtilityControlsProps> = ({ isMuted, isFullscreen
                     </svg>
                 )}
             </UtilityButton>
+            {/* FIX: Added conditional SVG icon as a child to the UtilityButton component. */}
             <UtilityButton onClick={onToggleFullscreen}>
                 {isFullscreen ? (
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
