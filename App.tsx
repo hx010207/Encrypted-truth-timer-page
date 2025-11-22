@@ -130,11 +130,11 @@ const App: React.FC = () => {
             <div className="absolute inset-0 bg-black/50 -z-10"></div>
             
             <div className="absolute top-4 left-4 h-24 w-24 md:h-28 md:w-28 z-20">
-                 <div className="p-2 bg-white/30 backdrop-blur-xl border-2 border-white/20 rounded-xl shadow-lg shadow-white/50 w-full h-full">
+                 <div className="p-2 bg-white/30 backdrop-blur-xl border-2 border-white/20 rounded-xl shadow-lg shadow-black/50 w-full h-full">
                     <img src="https://i.postimg.cc/Xq53Cytg/image.png" alt="Top Left Logo" className="w-full h-full object-contain"/>
                 </div>
             </div>
-            <div className="absolute top-4 right-4 h-24 w-24 md:h-28 md:w-28 z-20">
+            <div className="absolute top-4 right-4 h-35 w-35 md:h-40 md:w-40 z-30">
                 <div className="p-2 backdrop-blur-xl shadow-lg shadow-black/50 w-full h-full">
                     <img src="https://i.postimg.cc/MGfsxbB9/logo-jain-white.png" alt="Top Right Logo" className="w-full h-full object-contain"/>
                 </div>
